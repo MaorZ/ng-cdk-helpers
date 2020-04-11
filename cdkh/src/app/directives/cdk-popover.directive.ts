@@ -36,6 +36,10 @@ export class CdkPopoverDirective implements OnDestroy {
     console.log('a');
   }
 
+  get overlayRef() {
+    return this._popoverRef;
+  }
+
   public init() {
     this._popoverRef = this.overlayService.createPopover(
       this.elementRef,

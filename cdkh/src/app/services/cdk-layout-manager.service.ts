@@ -41,16 +41,28 @@ export class CdkLayoutManagerService {
   ) {
     if (!positions || positions.length < 1) {
       positions = [];
-      positions.push({
-        originX: 'start',
-        originY: 'center',
-        overlayX: 'end',
-        overlayY: 'top',
-      });
+      positions.push(
+        {
+          originX: 'start',
+          originY: 'center',
+          overlayX: 'end',
+          overlayY: 'top',
+          offsetX: -20,
+        },
+        {
+          originX: 'start',
+          originY: 'center',
+          overlayX: 'end',
+          overlayY: 'bottom',
+          offsetX: -20,
+        }
+      );
     }
     const posStrategy = this.overlay
       .position()
       .flexibleConnectedTo(connectedElement)
+      // .withGrowAfterOpen()
+      // .withFlexibleDimensions()
       .withPositions(positions);
 
     const overlayConfig = new OverlayConfig({
