@@ -1,1 +1,1 @@
-"# ng-cdk-helpers" 
+# ng-cdk-helpers
