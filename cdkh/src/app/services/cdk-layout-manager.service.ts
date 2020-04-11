@@ -36,17 +36,30 @@ export class CdkLayoutManagerService {
     connectedElement: ElementRef,
     positions: ConnectedPosition[],
     panelClass: string | string[],
+    backdropClass: string | string[],
     extraConfig: OverlayConfig
   ) {
+    if (!positions || positions.length < 1) {
+      positions = [];
+      positions.push({
+        originX: 'start',
+        originY: 'center',
+        overlayX: 'end',
+        overlayY: 'top',
+      });
+    }
     const posStrategy = this.overlay
       .position()
       .flexibleConnectedTo(connectedElement)
       .withPositions(positions);
+
     const overlayConfig = new OverlayConfig({
-      hasBackdrop: false,
-      disposeOnNavigation: true,
+      hasBackdrop: true,
+      backdropClass,
       panelClass,
+      disposeOnNavigation: true,
       positionStrategy: posStrategy,
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
       ...extraConfig,
     });
     return this.createOverlayRef(overlayConfig);

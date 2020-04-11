@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('ng-cdk-helpers app is running!');
+    expect(page.getTitleText()).toEqual('cdkh app is running!');
   });
 
   afterEach(async () => {

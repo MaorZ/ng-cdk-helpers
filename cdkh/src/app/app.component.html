@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="trigger" [style.background]="color" [cdkhPopover]="popover"></div>
+  <ng-template #popover>
+    <div
+      class="popover-container"
+      [(colorPicker)]="color"
+      [style.background]="color"
+      [cpDialogDisplay]="'inline'"
+      [cpToggle]="true"
+      (colorPickerChange)="colorChanged($event)"
+    ></div>
+  </ng-template>
+</div>

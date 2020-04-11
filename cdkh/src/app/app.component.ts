@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-cdk-helpers';
+  color = 'red';
 
   onClick() {
     console.log('onClick');
+  }
+
+  colorChanged(color: string) {
+    console.log(color);
   }
 }
